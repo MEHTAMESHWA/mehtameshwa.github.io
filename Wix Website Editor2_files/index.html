@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://editor.wix.com/_partials/media-gallery-g5/1.424.0/index.html#/empty -->
+<html><!-- <![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+
+<script type="text/javascript">
+window.VERSION='1.424.0';
+</script>
+
+<script type="text/javascript">
+try { // try access parent domain
+  parent.document.domain;
+}
+catch(e) { // parent have changed domain, we have to do it too
+
+  try { // we have to try
+      document.domain=document.domain.split('.').slice(-2).join('.');
+  }
+  catch(e) {}
+}
+</script>
+
+<!--<script src="//static.parastorage.com/services/third-party/xdomain/0.7.3/xdomain.min.js"></script>
+<script type="text/javascript">
+  // CORS Fix throw iframe for IE
+  if ((/MSIE|Trident/i).test(window.navigator.userAgent || '')) {
+    var siteUrl = document.location.protocol + '//' + document.location.hostname;
+    xdomain.slaves({
+      'https://files.wix.com':'/assets/iframe_cors_proxy.html?site_url=' + siteUrl,// private media
+      'https://publicmedia.wix.com':'/assets/iframe_cors_proxy.html?site_url=' + siteUrl,// public media
+      'https://pix.wix.com':'/assets/iframe_cors_proxy.html?site_url=' + siteUrl,  // external services
+      'http://files.wix.com':'/assets/iframe_cors_proxy.html?site_url=' + siteUrl,// private media
+      'http://publicmedia.wix.com':'/assets/iframe_cors_proxy.html?site_url=' + siteUrl,// public media
+      'http://pix.wix.com':'/assets/iframe_cors_proxy.html?site_url=' + siteUrl  // external services
+    });
+  }
+</script>-->
+
+<script src="./lodash.min.js(1).download"></script>
+
+<script src="./app-load-notifiers.js.download"></script>
+
+<script type="text/javascript">
+appLoadNotifiers.jsLoadStarted();
+</script>
+
+
+<link href="./fontFace.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="./build.css">
+
+</head>
+<body ng-app="mediaGalleryApp" class="ng-scope">
+    <img src="./mg" alt="" style="position: absolute; left: 0; top: 0; ">
+
+    <script src="./editor.js.download"></script>
+    <script src="./jquery.min.js(1).download"></script>
+    <script src="./angular.min.js.download"></script>
+    <script src="./angular-resource.min.js.download"></script>
+    <script src="./angular-ui-router.min.js.download"></script>
+    <script src="./restangular.min.js.download"></script>
+    <script src="./jquery-ui.min.js.download"></script>
+    <script src="./URI.js.download"></script>
+
+    <script src="./scripts.js.download"></script>
+
+
+    <div id="mediaGallery">
+        <div id="tooltip-wrapper" style="position:absolute;"></div>
+        <!-- uiView:  --><div class="container ng-scope" ui-view=""><!-- ngIf: settings.cssUrl --><!-- uiView:  --><div ui-view="" class="window-wrapper fullscreen"><!-- ngInclude: 'scripts/pages/_partials/window-header.html' --><div ng-include="&#39;scripts/pages/_partials/window-header.html&#39;" class="header ng-scope"><h1 class="ng-binding ng-scope">Choose a Video for Your Background<button bi-click="{ eventName: &#39;closeButton.click&#39;, data: {} }" ng-click="closeWindow()" class="close">×</button><button bi-click="{ eventName: &#39;helpButton.click&#39;, data: {} }" ng-click="$help.showPopup()" class="help">| ?</button></h1><help-popup class="ng-scope"><div><div ng-show="$help.popupIsVisible" class="inner-popup-underlay ng-hide"></div><!-- ngIf: $help.popupIsVisible --></div></help-popup></div><div class="content ng-scope"><div class="content-top"><!-- ngInclude: 'scripts/pages/_partials/tabs.html' --><div ng-include="&#39;scripts/pages/_partials/tabs.html&#39;" class="tabs ng-scope"><ul ng-show="settings.showTabs" class="ng-scope"><li><!-- ngRepeat: tabId in settings.tabsList --><button bi-click="{eventName: &#39;tabSelect.click&#39;, data: {target: tabId}}" ng-class="{active: isActiveTab(tabs[tabId])}" ng-repeat="tabId in settings.tabsList" ng-show="tabs[tabId].canShow()" ui-sref="app.private" class="ng-scope"><!-- ngIf: tabs[tabId].translationKey --><span ng-if="tabs[tabId].translationKey" class="ng-binding ng-scope">My Videos</span><!-- end ngIf: tabs[tabId].translationKey --><!-- ngIf: tabs[tabId].getTitle() --></button><!-- end ngRepeat: tabId in settings.tabsList --><button bi-click="{eventName: &#39;tabSelect.click&#39;, data: {target: tabId}}" ng-class="{active: isActiveTab(tabs[tabId])}" ng-repeat="tabId in settings.tabsList" ng-show="tabs[tabId].canShow()" ui-sref="app.public" class="ng-scope"><!-- ngIf: tabs[tabId].translationKey --><span ng-if="tabs[tabId].translationKey" class="ng-binding ng-scope">Free from Wix</span><!-- end ngIf: tabs[tabId].translationKey --><!-- ngIf: tabs[tabId].getTitle() --></button><!-- end ngRepeat: tabId in settings.tabsList --></li></ul></div><upload-button upload-files="$upload.addFiles(files, getSelectedFolder())" can-upload="tabs.private.canShow() &amp;&amp; !settings.disableUpload" bi-file-upload="change" class="ng-isolate-scope"><div file-select="uploadFiles({files: files})" ng-show="canUpload" class="upload-button"><input id="files-input" accept="*" bi-click="{eventName: &quot;uploadButton.click&quot;, data: {}}" bi-file-upload="change" multiple="true" name="file" type="file" title=""><button class="ng-binding">Upload Videos</button></div></upload-button></div></div><!-- ngInclude: 'scripts/pages/_partials/footer.html' --><div ng-include="&#39;scripts/pages/_partials/footer.html&#39;" class="footer ng-scope"><div class="submit ng-scope"><button bi-click="{eventName: &#39;chooseButton.click&#39;, data: {}}" ng-class="{disabled: !canSubmitItems()}" ng-click="submitItems()" ng-show="settings.submitItems" title="Choose file" class="ng-binding disabled">Change Background</button></div><!-- ngIf: $upload.getFilesQueue().length --><div ng-show="selectedEntitiesCount()" ng-switch="selectedEntitiesCount() &gt; 1" class="selected-items-size ng-scope ng-hide"><!-- ngSwitchWhen: true --><!-- ngSwitchWhen: false --><span ng-switch-when="false" class="ng-binding ng-scope">0 Item Selected</span></div></div></div></div>
+    </div>
+
+<script>
+  appLoadNotifiers.domLoadFinished();
+
+  document.getElementById('mediaGallery').addEventListener('mousewheel', function (e) {
+    e = e || window.event;
+
+    if (e.target == this) {
+      if (e.stopPropagation) e.stopPropagation();
+      if (e.preventDefault) return e.preventDefault();
+    }
+  });
+</script>
+
+
+</body></html>
